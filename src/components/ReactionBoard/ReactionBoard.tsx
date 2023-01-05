@@ -24,10 +24,15 @@ const ReactionBoard: FC<ReactionBoardType> = ({ children }) => {
     }
   };
 
-  const createReaction = (comment: string) => {
+  const createReaction = (comment: string, isEmoji = false) => {
     setReactions([
       ...reactions,
-      { positionPercentageX: formPositionX, positionPercentageY: formPositionY, comment: comment },
+      {
+        positionPercentageX: formPositionX,
+        positionPercentageY: formPositionY,
+        comment: comment,
+        isEmoji,
+      },
     ]);
     setFormOpened(false);
   };
@@ -39,12 +44,13 @@ const ReactionBoard: FC<ReactionBoardType> = ({ children }) => {
         handleClick(event.clientX, event.clientY)
       }
     >
-      {reactions.map(({ positionPercentageX, positionPercentageY, comment }, index) => (
+      {reactions.map(({ positionPercentageX, positionPercentageY, comment, isEmoji }, index) => (
         <Reaction
           key={`${positionPercentageX} ${positionPercentageX}-${comment}-${index}`}
           positionPercentageX={positionPercentageX}
           positionPercentageY={positionPercentageY}
           comment={comment}
+          isEmoji={isEmoji}
         />
       ))}
       {isFormOpened && (

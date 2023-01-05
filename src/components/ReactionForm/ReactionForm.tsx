@@ -3,7 +3,7 @@ import './ReactionForm.css';
 import { PositionType } from '~/components/Reaction/types';
 
 type ReactionForm = PositionType & {
-  onCreate: (comment: string) => void;
+  onCreate: (comment: string, isEmoji?: boolean) => void;
 };
 
 const ReactionForm: FC<ReactionForm> = ({ positionPercentageX, positionPercentageY, onCreate }) => {
@@ -20,7 +20,7 @@ const ReactionForm: FC<ReactionForm> = ({ positionPercentageX, positionPercentag
       style={{ top: positionPercentageY, left: positionPercentageX }}
       onClick={(e) => e.stopPropagation()}
     >
-      <p className='label'>Write your comment :)</p>
+      <p className='label'>Write your comment 😀</p>
       <div className='form'>
         <input
           className='input'
@@ -31,6 +31,20 @@ const ReactionForm: FC<ReactionForm> = ({ positionPercentageX, positionPercentag
         <button className='submitButton' onClick={handleCreate}>
           Create
         </button>
+      </div>
+      <div className='emojiReactBoard'>
+        <p className='emojiButton' onClick={() => onCreate('😀', true)}>
+          😀
+        </p>
+        <p className='emojiButton' onClick={() => onCreate('❤️', true)}>
+          ❤️
+        </p>
+        <p className='emojiButton' onClick={() => onCreate('👍', true)}>
+          👍
+        </p>
+        <p className='emojiButton' onClick={() => onCreate('👎', true)}>
+          👎
+        </p>
       </div>
     </div>
   );
