@@ -14,6 +14,7 @@
     height: 25px;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
+    z-index: 1;
 }
 
 .reaction:hover {
@@ -24,6 +25,7 @@
     padding: 12px 32px;
     width: initial;
     height: initial;
+    z-index: 2;
 }
 
 .reaction:hover .comment {
