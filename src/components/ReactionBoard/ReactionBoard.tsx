@@ -3,6 +3,7 @@ import './ReactionBoard.css';
 import { ReactionType } from '~/components/Reaction/types';
 import Reaction from '~/components/Reaction';
 import ReactionForm from '~/components/ReactionForm/ReactionForm';
+import { calculatePercentage } from '~/helpers';
 
 type ReactionBoardType = {
   children: JSX.Element | ReactElement;
@@ -28,8 +29,8 @@ const ReactionBoard: FC<ReactionBoardType> = ({ children }) => {
     setReactions([
       ...reactions,
       {
-        positionPercentageX: formPositionX,
-        positionPercentageY: formPositionY,
+        positionPercentageX: calculatePercentage(window.innerWidth, formPositionX),
+        positionPercentageY: calculatePercentage(window.innerHeight, formPositionY),
         comment: comment,
         isEmoji,
       },

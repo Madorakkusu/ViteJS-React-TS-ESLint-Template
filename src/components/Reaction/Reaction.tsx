@@ -11,11 +11,17 @@ const Reaction: FC<ReactionType> = ({
   return (
     <>
       {isEmoji ? (
-        <span className='emoji' style={{ top: positionPercentageY, left: positionPercentageX }}>
+        <span
+          className='emoji'
+          style={{ top: `${positionPercentageY}vh`, left: `${positionPercentageX}vw` }}
+        >
           {comment}
         </span>
       ) : (
-        <div className='reaction' style={{ top: positionPercentageY, left: positionPercentageX }}>
+        <div
+          className='reaction'
+          style={{ top: `${positionPercentageY}vh`, left: `${positionPercentageX}vw` }}
+        >
           <p className='comment'>{comment}</p>
         </div>
       )}
