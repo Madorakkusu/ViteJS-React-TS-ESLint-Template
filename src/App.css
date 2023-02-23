@@ -41,9 +41,9 @@ table {
   border-spacing: 0;
 }
 
-.app {
-  height: 100vh;
-  width: 100vw;
+.App {
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .card {
